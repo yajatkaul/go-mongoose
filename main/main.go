@@ -6,9 +6,10 @@ import (
 )
 
 func init() {
-	inits.SetupDatabase("mongodb://localhost:27017/test")
+	inits.SetupDatabase("mongodb://localhost:27017/fitnessFusion")
 }
 
 func main() {
-	functions.FindOne("users", "displayName","Yajat")
+	filter := `{"displayName": "Yajat"}`
+	functions.Find("users", filter)
 }
