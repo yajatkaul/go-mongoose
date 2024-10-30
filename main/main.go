@@ -10,6 +10,10 @@ func init() {
 }
 
 func main() {
-	filter := `{"displayName": "Yajat"}`
-	functions.Find("users", filter)
+	//filter := `{"displayName": "Yajat","email":"mc.crafter1973@gmail.com"}`
+	functions.FindOne("users")
 }
+
+//functions.Create("users", filter) to Insert a doc
+//functions.Find("users", filter) find all matching docs
+//functions.FindOne("users", filter) find one matching doc

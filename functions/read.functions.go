@@ -10,18 +10,23 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func FindOne(collectionName string, filterJSON string) {
+func FindOne(collectionName string, filterJSON ...string) {
 	find := inits.DB.Database(inits.CollectionName).Collection(collectionName)
 	var result bson.M
 
 	var filter bson.M
-	err := json.Unmarshal([]byte(filterJSON), &filter)
-	if err != nil {
-		fmt.Println("Error parsing JSON:", err)
-		return
+
+	if len(filterJSON) > 0 && filterJSON[0] != "" {
+		err := json.Unmarshal([]byte(filterJSON[0]), &filter)
+		if err != nil {
+			fmt.Println("Error parsing JSON:", err)
+			return
+		}
+	} else {
+		filter = bson.M{} // Default filter to match all documents
 	}
 
-	err = find.FindOne(context.TODO(), filter).Decode(&result)
+	err := find.FindOne(context.TODO(), filter).Decode(&result)
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
@@ -35,14 +40,19 @@ func FindOne(collectionName string, filterJSON string) {
 	fmt.Println("Found document:", result)
 }
 
-func Find(collectionName string, filterJSON string) {
+func Find(collectionName string, filterJSON ...string) {
 	find := inits.DB.Database(inits.CollectionName).Collection(collectionName)
 	
 	var filter bson.M
-	err := json.Unmarshal([]byte(filterJSON), &filter)
-	if err != nil {
-		fmt.Println("Error parsing JSON:", err)
-		return
+
+	if len(filterJSON) > 0 && filterJSON[0] != "" {
+		err := json.Unmarshal([]byte(filterJSON[0]), &filter)
+		if err != nil {
+			fmt.Println("Error parsing JSON:", err)
+			return
+		}
+	} else {
+		filter = bson.M{} 
 	}
 
 	cursor, err := find.Find(context.TODO(), filter)
@@ -59,13 +69,11 @@ func Find(collectionName string, filterJSON string) {
 		return
 	}
 
-	// Check if results were found
 	if len(results) == 0 {
 		fmt.Println("No results found")
 		return
 	}
 
-	// Print all found documents
 	for _, result := range results {
 		fmt.Println("Found document:", result)
 	}
