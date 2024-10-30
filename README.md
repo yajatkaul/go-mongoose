@@ -8,8 +8,8 @@
 
 <h1 align="left">Changes required</h1>
 ###
-> <h3 align="left">-Add populate funcionality </h3>
-> <h3 align="left">-Struct funcionalty idk atp</h3>
-> <h3 align="left">-Few more functions like findoneandupdate, findonebyid etc</h3>
-> <h3 align="left">-IDK</h3>
+> <h4 align="left">-Add populate funcionality </h4>
+> <h4 align="left">-Struct funcionalty idk atp</h4>
+> <h4 align="left">-Few more functions like findoneandupdate, findonebyid etc</h4>
+> <h4 align="left">-IDK</h4>
 ###
