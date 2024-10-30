@@ -15,6 +15,6 @@ func main() {
 	mongoose.FindOne("users")
 }
 
-//functions.Create("users", filter) to Insert a doc
-//functions.Find("users", filter) find all matching docs
-//functions.FindOne("users", filter) find one matching doc
+//mongoose.Create("users", filter) to Insert a doc
+//mongoose.Find("users", filter) find all matching docs
+//mongoose.FindOne("users", filter) find one matching doc
