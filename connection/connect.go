@@ -1,4 +1,4 @@
-package inits
+package MongoDBConnection
 
 import (
 	"context"
@@ -12,7 +12,7 @@ import (
 var DB *mongo.Client
 var CollectionName string
 
-func SetupDatabase(uri string) *mongo.Client{
+func Connect(uri string) *mongo.Client{
     CollectionName = GetCollection(uri)
 	var err error
 	clientOptions := options.Client().ApplyURI(GetBaseURI(uri))

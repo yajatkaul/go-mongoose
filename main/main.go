@@ -1,17 +1,18 @@
 package main
 
 import (
-	inits "go-mongoose/connection"
-	"go-mongoose/functions"
+	MongoDBConnection "go-mongoose/connection"
+	mongoose "go-mongoose/functions"
 )
 
 func init() {
-	inits.SetupDatabase("mongodb://localhost:27017/fitnessFusion")
+	//Connect to the db
+	MongoDBConnection.Connect("mongodb://localhost:27017/fitnessFusion")
 }
 
 func main() {
 	//filter := `{"displayName": "Yajat","email":"mc.crafter1973@gmail.com"}`
-	functions.FindOne("users")
+	mongoose.FindOne("users")
 }
 
 //functions.Create("users", filter) to Insert a doc
