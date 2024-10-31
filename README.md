@@ -17,6 +17,7 @@ To install Go Mongoose, use the following command:
 
 ```bash
 go get github.com/yajatkaul/go-mongoose
+go mod tidy
 ```
 
 ## Getting Started
