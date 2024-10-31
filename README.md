@@ -41,7 +41,6 @@ func init() {
 # 2. Performing Operations
 Go Mongoose provides several functions to interact with your collections. Below are some common operations:
 * Create a Document: Insert a document into a collection.
-
   ```bash
   mongoose.Create("collectionName", filter) // filter is the document to insert
   ```
