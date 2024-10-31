@@ -28,7 +28,7 @@ Before performing any operations, you need to connect to your MongoDB database. 
 package main
 
 import (
-    MongoDBConnection "go-mongoose/connection"
+    MongoDBConnection "github.com/yajatkaul/go-mongoose/MongoDBConnection"
 )
 
 func init() {
@@ -87,8 +87,8 @@ package main
 
 import (
     "fmt"
-    MongoDBConnection "go-mongoose/connection"
-    mongoose "go-mongoose/functions"
+    MongoDBConnection "github.com/yajatkaul/go-mongoose/MongoDBConnection"
+	"github.com/yajatkaul/go-mongoose/mongoose"
 )
 
 func init() {
