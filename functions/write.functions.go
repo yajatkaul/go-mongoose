@@ -5,14 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 
-	inits "github.com/yajatkaul/go-mongoose/connection"
+	MongoDBConnection "github.com/yajatkaul/go-mongoose/connection"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func Create(collectionName string, jsonData string) {
-	collection := inits.DB.Database(inits.DBName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	var body bson.M
 	err := json.Unmarshal([]byte(jsonData), &body)
@@ -31,7 +31,7 @@ func Create(collectionName string, jsonData string) {
 }
 
 func FindOneandUpdate(collectionName string, filterJson string, updateJson string){
-	collection := inits.DB.Database(inits.DBName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	var filter bson.M
 	err := json.Unmarshal([]byte(filterJson), &filter)
@@ -64,7 +64,7 @@ func FindOneandUpdate(collectionName string, filterJson string, updateJson strin
 }
 
 func FindAllandUpdate(collectionName string, filterJSON string, updateJSON string){
-	collection := inits.DB.Database(inits.DBName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	//Parsing filter to json
 	var filter bson.M
