@@ -12,10 +12,10 @@ func init() {
 }
 
 func main() {
-	filter := `{"gender": "Male"}`
+	//filter := `{"gender": "Male"}`
 	//update := `{"sports": "Football"}`
-	val := mongoose.FindOne("users", filter)
-	fmt.Println(val)
+	val := mongoose.Find("tourneys")
+	fmt.Println(mongoose.PopulateAll("host","users",val))
 }
 
 //mongoose.Create("users", filter) to Insert a doc
@@ -29,4 +29,12 @@ func main() {
 /*
 val := mongoose.Find("users", filter)
 fmt.Println(val[0]["displayName"])
+
+Populate
+val := mongoose.FindOne("tourneys")
+fmt.Println(mongoose.Populate("host","users",val))
+
+Populate all
+val := mongoose.Find("tourneys")
+fmt.Println(mongoose.PopulateAll("host","users",val))
 */
