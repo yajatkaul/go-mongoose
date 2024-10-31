@@ -8,7 +8,7 @@ import (
 
 func init() {
 	//Connect to the db
-	MongoDBConnection.Connect("mongodb://localhost:27017/Tourney")
+	MongoDBConnection.Connect("mongodb://localhost:27017/Tourney", "Tourney")
 }
 
 func main() {

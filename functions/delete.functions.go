@@ -11,7 +11,7 @@ import (
 )
 
 func FindOneandDelete(collectionName string, filterJSON string) {
-	collection := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	var filter bson.M
 	err := json.Unmarshal([]byte(filterJSON), &filter)
@@ -34,7 +34,7 @@ func FindOneandDelete(collectionName string, filterJSON string) {
 }
 
 func FindAllandDelete(collectionName string, filterJSON string) {
-	collection := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	var filter bson.M
 	err := json.Unmarshal([]byte(filterJSON), &filter)

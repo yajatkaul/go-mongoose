@@ -11,7 +11,7 @@ import (
 )
 
 func FindOne(collectionName string, filterJSON ...string) bson.M{
-	find := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
+	find := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 	var result bson.M
 
 	var filter bson.M
@@ -42,7 +42,7 @@ func FindOne(collectionName string, filterJSON ...string) bson.M{
 }
 
 func Find(collectionName string, filterJSON ...string) []bson.M{
-	collection := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 	
 	var filter bson.M
 
