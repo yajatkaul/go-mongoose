@@ -1,20 +1,3 @@
-<h1 align="left">Under Development</h1>
-
-
-<h4 align="left">This library is far from complete as of now documentaion will be maintained soon</h4>
-
-
-<h1 align="left">Changes required</h1>
-
-
-> -Add populate funcionality (This has been done but this is not very efficient and is not exactly like mongoose maybe someday, for now maybe use it or just nested Find functions)
-
-> -Struct funcionalty idk atp
-
-> ~~-Few more functions like findoneandupdate, findonebyid etc~~
-
-> -IDK
-
 # Go Mongoose
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/yajatkaul/Go-Mongoose)](https://goreportcard.com/report/github.com/yajatkaul/Go-Mongoose)
@@ -130,3 +113,14 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgements
 * Inspired by the Mongoose library for Node.js.
 * Thanks to the MongoDB community for their support and resources.
+
+##Changes required
+
+> -Add populate funcionality (This has been done but this is not very efficient and is not exactly like mongoose maybe someday, for now maybe use it or just nested Find functions)
+
+> -Struct funcionalty idk atp
+
+> ~~-Few more functions like findoneandupdate, findonebyid etc~~
+
+> -IDK
+
