@@ -1,4 +1,4 @@
-module Go-Mongoose
+module go-mongoose
 
 go 1.22.3
 
