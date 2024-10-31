@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	MongoDBConnection "github.com/yajatkaul/go-mongoose/src/src/connection"
-
+	MongoDBConnection "github.com/yajatkaul/go-mongoose/src/connection"
+    
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
