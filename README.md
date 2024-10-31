@@ -114,7 +114,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 * Inspired by the Mongoose library for Node.js.
 * Thanks to the MongoDB community for their support and resources.
 
-##Changes required
+## Changes required
 
 > -Add populate funcionality (This has been done but this is not very efficient and is not exactly like mongoose maybe someday, for now maybe use it or just nested Find functions)
 
