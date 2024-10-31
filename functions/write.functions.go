@@ -61,3 +61,37 @@ func FindOneandUpdate(collectionName string, filterJson string, updateJson strin
 
 	fmt.Println("Updated document:", updatedDoc)
 }
+
+func FindAllandUpdate(collectionName string, filterJSON string, updateJSON string){
+	collection := inits.DB.Database(inits.CollectionName).Collection(collectionName)
+
+	//Parsing filter to json
+	var filter bson.M
+	err := json.Unmarshal([]byte(filterJSON), &filter)
+	if err != nil {
+		fmt.Println("Error parsing filter JSON:", err)
+		return
+	}
+
+	//Parsing update to json
+	var update bson.M
+	err = json.Unmarshal([]byte(updateJSON), &update)
+	if err != nil {
+		fmt.Println("Error parsing update JSON:", err)
+		return
+	}
+
+	updateDoc := bson.M{"$set": update}
+
+	updateResult, err := collection.UpdateMany(context.TODO(), filter, updateDoc)
+	if err != nil {
+		fmt.Println("Error updating documents:", err)
+		return
+	}
+
+	if updateResult.MatchedCount == 0 {
+		fmt.Println("No matching documents found to update")
+	} else {
+		fmt.Printf("Matched %d documents and updated %d documents\n", updateResult.MatchedCount, updateResult.ModifiedCount)
+	}
+}
