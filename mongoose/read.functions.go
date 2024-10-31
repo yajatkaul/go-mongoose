@@ -11,7 +11,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func FindOne(collectionName string, filterJSON ...string) bson.M{
+func FindOne(collectionName string, filterJSON ...string) bson.M {
 	find := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 	var result bson.M
 
@@ -42,9 +42,9 @@ func FindOne(collectionName string, filterJSON ...string) bson.M{
 	return result
 }
 
-func Find(collectionName string, filterJSON ...string) []bson.M{
+func Find(collectionName string, filterJSON ...string) []bson.M {
 	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
-	
+
 	var filter bson.M
 
 	if len(filterJSON) > 0 && filterJSON[0] != "" {
@@ -54,7 +54,7 @@ func Find(collectionName string, filterJSON ...string) []bson.M{
 			return nil
 		}
 	} else {
-		filter = bson.M{} 
+		filter = bson.M{}
 	}
 
 	cursor, err := collection.Find(context.TODO(), filter)
@@ -77,9 +77,9 @@ func Find(collectionName string, filterJSON ...string) []bson.M{
 	}
 
 	/*
-	for _, result := range results {
-		fmt.Println("Found document:", result)
-	}
+		for _, result := range results {
+			fmt.Println("Found document:", result)
+		}
 	*/
 
 	return results

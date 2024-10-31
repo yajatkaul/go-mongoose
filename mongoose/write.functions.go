@@ -30,7 +30,7 @@ func Create(collectionName string, jsonData string) {
 	fmt.Println(result)
 }
 
-func FindOneandUpdate(collectionName string, filterJson string, updateJson string){
+func FindOneandUpdate(collectionName string, filterJson string, updateJson string) {
 	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	var filter bson.M
@@ -63,7 +63,7 @@ func FindOneandUpdate(collectionName string, filterJson string, updateJson strin
 	fmt.Println("Updated document:", updatedDoc)
 }
 
-func FindAllandUpdate(collectionName string, filterJSON string, updateJSON string){
+func FindAllandUpdate(collectionName string, filterJSON string, updateJSON string) {
 	collection := MongoDBConnection.DB.Database(MongoDBConnection.DBName).Collection(collectionName)
 
 	//Parsing filter to json

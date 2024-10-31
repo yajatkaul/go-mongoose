@@ -11,8 +11,8 @@ import (
 var DB *mongo.Client
 var DBName string
 
-func Connect(uri string, dbName string) *mongo.Client{
-    DBName = dbName
+func Connect(uri string, dbName string) *mongo.Client {
+	DBName = dbName
 	var err error
 	clientOptions := options.Client().ApplyURI(uri)
 
@@ -27,5 +27,5 @@ func Connect(uri string, dbName string) *mongo.Client{
 	}
 
 	log.Println("Connected to MongoDB!")
-    return DB
+	return DB
 }
