@@ -87,8 +87,8 @@ package main
 
 import (
     "fmt"
-    MongoDBConnection "go-mongoose/connection"
-    mongoose "go-mongoose/functions"
+    MongoDBConnection "github.com/yajatkaul/go-mongoose/MongoDBConnection"
+	"github.com/yajatkaul/go-mongoose/mongoose"
 )
 
 func init() {
