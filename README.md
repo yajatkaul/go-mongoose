@@ -40,11 +40,11 @@ func init() {
 
 # 2. Performing Operations
 Go Mongoose provides several functions to interact with your collections. Below are some common operations:
-```bash
-	//filter and updates are just JSON formats
-	filter := `{"displayName": "Yajat","email":"def@sds.com"}`
-	update := `{"displayName": "Yajat2", "email":"abc@sds.com"}`
-```
+  ```bash
+  //filter and updates are just JSON formats
+  filter := `{"displayName": "Yajat","email":"def@sds.com"}`
+  update := `{"displayName": "Yajat2", "email":"abc@sds.com"}`
+  ```
 * Create a Document: Insert a document into a collection.
   ```bash
   mongoose.Create("collectionName", filter) // filter is the document to insert
