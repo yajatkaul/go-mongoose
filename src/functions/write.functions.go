@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	MongoDBConnection "go/src/github.com/yajatkaul/go-mongoose/src/connection"
+	MongoDBConnection "github.com/yajatkaul/go-mongoose/src/connection"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
