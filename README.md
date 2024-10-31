@@ -7,7 +7,7 @@
 <h1 align="left">Changes required</h1>
 
 
-> -Add populate funcionality
+> -Add populate funcionality (This has been done but this is not very efficient and is not exactly like mongoose maybe someday, for now maybe use it or just nested Find functions)
 
 > -Struct funcionalty idk atp
 
