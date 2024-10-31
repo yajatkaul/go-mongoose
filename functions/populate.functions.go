@@ -3,7 +3,8 @@ package mongoose
 import (
 	"context"
 	"fmt"
-	MongoDBConnection "go-mongoose/connection"
+
+	MongoDBConnection "github.com/yajatkaul/go-mongoose/connection"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
