@@ -28,7 +28,7 @@ Before performing any operations, you need to connect to your MongoDB database. 
 package main
 
 import (
-    MongoDBConnection "go-mongoose/connection"
+    MongoDBConnection "github.com/yajatkaul/go-mongoose/MongoDBConnection"
 )
 
 func init() {
