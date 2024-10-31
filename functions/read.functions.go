@@ -4,14 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	inits "go-mongoose/connection"
+	MongoDBConnection "go-mongoose/connection"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func FindOne(collectionName string, filterJSON ...string) {
-	find := inits.DB.Database(inits.CollectionName).Collection(collectionName)
+	find := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
 	var result bson.M
 
 	var filter bson.M
@@ -41,7 +41,7 @@ func FindOne(collectionName string, filterJSON ...string) {
 }
 
 func Find(collectionName string, filterJSON ...string) {
-	find := inits.DB.Database(inits.CollectionName).Collection(collectionName)
+	find := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
 	
 	var filter bson.M
 

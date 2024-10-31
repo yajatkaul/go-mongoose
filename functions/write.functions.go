@@ -7,6 +7,7 @@ import (
 	inits "go-mongoose/connection"
 
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func Create(collectionName string, jsonData string) {
@@ -26,4 +27,37 @@ func Create(collectionName string, jsonData string) {
 	}
 
 	fmt.Println(result)
+}
+
+func FindOneandUpdate(collectionName string, filterJson string, updateJson string){
+	collection := inits.DB.Database(inits.CollectionName).Collection(collectionName)
+
+	var filter bson.M
+	err := json.Unmarshal([]byte(filterJson), &filter)
+	if err != nil {
+		fmt.Println("Error parsing filter JSON:", err)
+		return
+	}
+
+	var update bson.M
+	err = json.Unmarshal([]byte(updateJson), &update)
+	if err != nil {
+		fmt.Println("Error parsing update JSON:", err)
+		return
+	}
+
+	updateDoc := bson.M{"$set": update}
+
+	var updatedDoc bson.M
+	err = collection.FindOneAndUpdate(context.TODO(), filter, updateDoc).Decode(&updatedDoc)
+	if err != nil {
+		if err == mongo.ErrNoDocuments {
+			fmt.Println("No document found to update")
+		} else {
+			fmt.Println("Error updating document:", err)
+		}
+		return
+	}
+
+	fmt.Println("Updated document:", updatedDoc)
 }
