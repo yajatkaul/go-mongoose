@@ -93,7 +93,7 @@ import (
 
 func init() {
     // Connect to the MongoDB database
-    MongoDBConnection.Connect("mongodb://ip:27017/", "Tourney")
+    MongoDBConnection.Connect("mongodb://localhost:27017/", "Tourney")
 }
 
 func main() {
