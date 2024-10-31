@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func FindOne(collectionName string, filterJSON ...string) {
+func FindOne(collectionName string, filterJSON ...string) bson.M{
 	find := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
 	var result bson.M
 
@@ -20,7 +20,7 @@ func FindOne(collectionName string, filterJSON ...string) {
 		err := json.Unmarshal([]byte(filterJSON[0]), &filter)
 		if err != nil {
 			fmt.Println("Error parsing JSON:", err)
-			return
+			return nil
 		}
 	} else {
 		filter = bson.M{} // Default filter to match all documents
@@ -34,14 +34,15 @@ func FindOne(collectionName string, filterJSON ...string) {
 		} else {
 			fmt.Println("Database error found", err)
 		}
-		return
+		return nil
 	}
 
-	fmt.Println("Found document:", result)
+	//fmt.Println("Found document:", result)
+	return result
 }
 
-func Find(collectionName string, filterJSON ...string) {
-	find := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
+func Find(collectionName string, filterJSON ...string) []bson.M{
+	collection := MongoDBConnection.DB.Database(MongoDBConnection.CollectionName).Collection(collectionName)
 	
 	var filter bson.M
 
@@ -49,16 +50,16 @@ func Find(collectionName string, filterJSON ...string) {
 		err := json.Unmarshal([]byte(filterJSON[0]), &filter)
 		if err != nil {
 			fmt.Println("Error parsing JSON:", err)
-			return
+			return nil
 		}
 	} else {
 		filter = bson.M{} 
 	}
 
-	cursor, err := find.Find(context.TODO(), filter)
+	cursor, err := collection.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("Database error found", err)
-		return
+		return nil
 	}
 	defer cursor.Close(context.TODO())
 
@@ -66,15 +67,19 @@ func Find(collectionName string, filterJSON ...string) {
 
 	if err = cursor.All(context.TODO(), &results); err != nil {
 		fmt.Println("Error reading cursor:", err)
-		return
+		return nil
 	}
 
 	if len(results) == 0 {
 		fmt.Println("No results found")
-		return
+		return nil
 	}
 
+	/*
 	for _, result := range results {
 		fmt.Println("Found document:", result)
 	}
+	*/
+
+	return results
 }
