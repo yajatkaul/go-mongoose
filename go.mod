@@ -1,4 +1,4 @@
-module go/src/github.com/yajatkaul/go-mongoose
+module github.com/yajatkaul/go-mongoose
 
 go 1.22.3
 
