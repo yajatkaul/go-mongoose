@@ -33,7 +33,7 @@ import (
 
 func init() {
     // Connect to the MongoDB database
-    MongoDBConnection.Connect("mongodb://localhost:27017/Tourney", "Tourney")
+    MongoDBConnection.Connect("uri", "Database Name")
 }
 ```
 
@@ -72,13 +72,13 @@ Go Mongoose provides several functions to interact with your collections. Below 
 You can easily populate fields from related collections:
 * Populate a Single Reference:
   ```bash
-  val := mongoose.FindOne("tourneys")
-  fmt.Println(mongoose.Populate("host", "users", val))
+  document := mongoose.FindOne("collectionName")
+  fmt.Println(mongoose.Populate("Name of the field to Populate", "Refference with which you want to populate", document))
   ```
 * Populate All References:
   ```bash
-  val := mongoose.Find("tourneys")
-  fmt.Println(mongoose.PopulateAll("host", "users", val))
+  document := mongoose.Find("collectionName")
+  fmt.Println(mongoose.PopulateAll("Name of the field to Populate", "Refference with which you want to populate", document))
   ```
 ## Example Usage
 Here’s a complete example demonstrating the usage of Go Mongoose:
@@ -93,15 +93,15 @@ import (
 
 func init() {
     // Connect to the MongoDB database
-    MongoDBConnection.Connect("mongodb://localhost:27017/Tourney", "Tourney")
+    MongoDBConnection.Connect("mongodb://ip:27017/", "Tourney")
 }
 
 func main() {
     // Find all tourneys
-    val := mongoose.Find("tourneys")
+    document := mongoose.Find("users")
     
     // Populate host information
-    fmt.Println(mongoose.PopulateAll("host", "users", val))
+    fmt.Println(mongoose.PopulateAll("followers", "users", document))
 }
 ```
 ## Contributing
