@@ -1,7 +1,7 @@
 # Go Mongoose
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/yajatkaul/go-mongoose)](https://goreportcard.com/report/github.com/yajatkaul/go-mongoose)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yajatkaul/go-mongoose)](https://goreportcard.com/report/github.com/yajatkaul/go-mongoose)
 
 **Go Mongoose** is a lightweight MongoDB wrapper for Go, inspired by Mongoose, designed to simplify database operations and improve code readability.
 
